@@ -6,12 +6,9 @@ jobs:
   docker-build:
     name: Build Docker image
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        ansible: [ "2.9.0", "3.1.0", "4.1.0" ]
+    
     steps:
-      - name: Install Docker
+      - name: Build Docker image
         uses: docker/build-push-action@v2
         with:
           push: false
-          build-args: "ANSIBLE_VERSION=${{ matrix.ansible }}"
