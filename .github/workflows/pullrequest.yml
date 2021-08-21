@@ -1,0 +1,14 @@
+name: Pull Request Checks
+on:
+  pull_request:
+
+jobs:
+  docker-build:
+    name: Build Docker image
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          push: false
