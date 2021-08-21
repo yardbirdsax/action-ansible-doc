@@ -1,0 +1,16 @@
+name: Pull Request Checks
+on:
+  pull_request:
+
+jobs:
+  docker-build:
+    name: Build Docker image
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        ansible: [ "2.9.0", "3.1.0", "4.1.0" ]
+    steps:
+      - name: Install Docker
+        uses: docker/build-push-action@v2
+        with:
+          push: false
